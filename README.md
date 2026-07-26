@@ -3,7 +3,7 @@
 A modern, responsive, and interactive personal portfolio website showcasing my skills, projects, education, and contact information. Built using HTML, CSS, and JavaScript, this portfolio highlights my journey as an aspiring Software Engineer and Full-Stack Java Developer.
 
 #Live Demo
-🔗 https://your-vercel-link.vercel.app
+🔗 https://bishakha-portfolio.vercel.app/
 
 #Features
 - Responsive Home Page
