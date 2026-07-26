@@ -4,20 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bishakha Portfolio</title>
-
-    <!-- Font Awesome -->
+    <title>Bishakha | Portfolio</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Pstyle.css">
 </head>
-
 <body>
-    <!-- ===== Navbar ===== -->
     <header class="navbar">
-        <div class="logo">Bishakha | Portfolio</div>
+        <div class="logo">
+            Bishakha | Portfolio
+        </div>
         <ul class="navlist">
             <li><a href="index1.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
@@ -27,78 +24,67 @@
         </ul>
     </header>
 
-    <!-- ===== Home Section ===== -->
     <section id="home" class="home-section">
         <div class="home-content">
-            <!-- Your photo -->
             <div class="home-image">
                 <img src="my_pic2.jpg" alt="Bishakha Prasad">
             </div>
-
-            <h1 class="home-name">Hello, I'm <span class="home2">Bishakha Prasad</span></h1>
-            <h2 class="home-role">A Passionate <span class="typing"></span></h2>
-
+            <h1 class="home-name">
+                Hi, I'm
+                <span class="home2">Bishakha Prasad</span>
+            </h1>
+            <h2 class="home-role">               
+                <span class="typing"></span>
+            </h2>
             <p class="home-detail">
-                As an Electronics and Communication Engineering student, I explore both hardware and software,
-                bridging innovation with functionality. I’m passionate about coding, solving problems, and creating
-                digital experiences that make a difference.
+               A Final-year Electronics and Communication Engineering student with a passion for building innovative software solutions. Skilled in Java, Spring Boot, React, REST APIs, and MySQL, I develop secure, scalable, and user-focused applications while continuously exploring new technologies and solving real-world problems through clean, efficient code.
             </p>
-
-            <div class="btn-container">
-                <button class="btn-secondary" onclick="location.href='projects.html'">View Projects</button>
-                <button class="btn-primary" onclick="location.href='contact.html'">Hire Me</button>
-                
-            </div>
-
             <div class="social-icons">
-                <a href="https://www.linkedin.com/in/bishakha-prasad-864885325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/Bishakha2502" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.instagram.com/_.bishakha.___?igsh=dGhjbWV0NnV6NW83" target="_blank"><i
-                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/bishakha-prasad-864885325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Bishakha2502"target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/_.bishakha.___?igsh=dGhjbWV0NnV6NW83"target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://leetcode.com/u/Bishakha_Prasad/" target="_blank">
+                <img src="https://cdn.simpleicons.org/leetcode" alt="LeetCode" class="leetcode-icon"></a>
             </div>
         </div>
     </section>
-
-    <footer>© 2025 Bishakha Portfolio. All Rights Reserved.</footer>
-
-    <!-- ===== Typing Animation Script ===== -->
+    <footer> © 2026 Bishakha Portfolio. All Rights Reserved.</footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const typingSpan = document.querySelector('.typing');
-            if (!typingSpan) return;
+        document.addEventListener("DOMContentLoaded", () => {
+            const typingElement = document.querySelector(".typing");
+            const words = [
+                "Software Developer",
+                "Problem Solver",
+                "Tech Enthusiast"
+            ];
 
-            const textArray = ["Software Developer", "Problem Solver", "Creative Coder"];
-            let typingIndex = 0;
+            let wordIndex = 0;
             let charIndex = 0;
-            const typingSpeed = 120;
-            const erasingSpeed = 80;
-            const delayBetween = 1500;
-
-            function type() {
-                const current = textArray[typingIndex];
-                if (charIndex < current.length) {
-                    typingSpan.textContent += current.charAt(charIndex++);
-                    setTimeout(type, typingSpeed);
+            let isDeleting = false;
+            function typeEffect() {
+                const currentWord = words[wordIndex];
+                if (!isDeleting) {
+                    typingElement.textContent =
+                        currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                    if (charIndex === currentWord.length) {
+                        isDeleting = true;
+                        setTimeout(typeEffect, 1500);
+                        return;
+                    }
                 } else {
-                    setTimeout(erase, delayBetween);
-                }
-            }
-
-            function erase() {
-                if (charIndex > 0) {
-                    typingSpan.textContent = typingSpan.textContent.slice(0, -1);
+                    typingElement.textContent =
+                        currentWord.substring(0, charIndex - 1);
                     charIndex--;
-                    setTimeout(erase, erasingSpeed);
-                } else {
-                    typingIndex = (typingIndex + 1) % textArray.length;
-                    setTimeout(type, typingSpeed);
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                    }
                 }
+                setTimeout(typeEffect, isDeleting ? 60 : 120);
             }
-
-            setTimeout(type, 700);
+            typeEffect();
         });
     </script>
 </body>
-
 </html>
